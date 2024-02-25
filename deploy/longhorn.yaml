@@ -4365,7 +4365,7 @@ spec:
     spec:
       containers:
       - name: longhorn-manager
-        image: longhornio/longhorn-manager:master-head
+        image: harbor.nirvati.org/nirvati/longhorn-manager:latest
         imagePullPolicy: IfNotPresent
         securityContext:
           privileged: true
@@ -4376,7 +4376,7 @@ spec:
         - --engine-image
         - "longhornio/longhorn-engine:master-head"
         - --instance-manager-image
-        - "longhornio/longhorn-instance-manager:master-head"
+        - "harbor.nirvati.org/nirvati/longhorn-instance-manager:latest"
         - --share-manager-image
         - "longhornio/longhorn-share-manager:master-head"
         - --backing-image-manager-image
@@ -4384,7 +4384,7 @@ spec:
         - --support-bundle-manager-image
         - "longhornio/support-bundle-kit:v0.0.33"
         - --manager-image
-        - "longhornio/longhorn-manager:master-head"
+        - "harbor.nirvati.org/nirvati/longhorn-manager:latest"
         - --service-account
         - longhorn-service-account
         - --upgrade-version-check
@@ -4470,18 +4470,18 @@ spec:
     spec:
       initContainers:
         - name: wait-longhorn-manager
-          image: longhornio/longhorn-manager:master-head
+          image: harbor.nirvati.org/nirvati/longhorn-manager:latest
           command: ['sh', '-c', 'while [ $(curl -m 1 -s -o /dev/null -w "%{http_code}" http://longhorn-backend:9500/v1) != "200" ]; do echo waiting; sleep 2; done']
       containers:
         - name: longhorn-driver-deployer
-          image: longhornio/longhorn-manager:master-head
+          image: harbor.nirvati.org/nirvati/longhorn-manager:latest
           imagePullPolicy: IfNotPresent
           command:
           - longhorn-manager
           - -d
           - deploy-driver
           - --manager-image
-          - "longhornio/longhorn-manager:master-head"
+          - "harbor.nirvati.org/nirvati/longhorn-manager:latest"
           - --manager-url
           - http://longhorn-backend:9500/v1
           env:

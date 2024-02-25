@@ -38,9 +38,9 @@ image:
       tag: master-head
     manager:
       # -- Repository for the Longhorn Manager image.
-      repository: longhornio/longhorn-manager
+      repository: harbor.nirvati.org/nirvati/longhorn-manager
       # -- Tag for the Longhorn Manager image.
-      tag: master-head
+      tag: latest
     ui:
       # -- Repository for the Longhorn UI image.
       repository: longhornio/longhorn-ui
@@ -48,9 +48,9 @@ image:
       tag: master-head
     instanceManager:
       # -- Repository for the Longhorn Instance Manager image.
-      repository: longhornio/longhorn-instance-manager
+      repository: harbor.nirvati.org/nirvati/longhorn-instance-manager
       # -- Tag for the Longhorn Instance Manager image.
-      tag: master-head
+      tag: latest
     shareManager:
       # -- Repository for the Longhorn Share Manager image.
       repository: longhornio/longhorn-share-manager
